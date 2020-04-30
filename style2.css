@@ -1,0 +1,256 @@
+body {
+    font-family: roboto, 'Lucida Sans', Verdana, sans-serif;
+    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  }
+
+h1 {
+  font-family: 'Contrail One', 'Lucida Sans', 'Lucida Sans Regular';
+  font-size: 5em;
+  color: darkblue;
+  text-shadow: 2px 2px 8px purple;
+}
+
+h2 {
+  font-family: 'Contrail One', 'Lucida Sans', 'Lucida Sans Regular';
+    text-align: center;
+    margin: 10px;
+    font-size: 3em;
+    color: purple;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  background-color: blanchedalmond;
+  padding: 10px 0px 10px 0px;
+  justify-content: space-around;
+
+}
+
+.footer-container {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 60%;
+  max-width: 300px;
+}
+
+header {
+    width:100%;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blanchedalmond;
+}
+    
+
+.reservation {
+  width: 100%;
+  min-height: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#loader {
+  width: 100px;
+  height: 100px;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  margin: auto;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*Slider CSS*/
+.slider {
+    position: relative;
+}
+.slider-diapo {
+    margin: auto;
+    width:100%;
+    max-width: 1500px;
+    max-height: 600px;
+    min-height: 100%;
+    align-items: center;
+    position: relative;
+    display: none;
+    overflow: hidden;
+    -webkit-animation: fade 2s; 
+	  animation: fade 2s;
+}
+
+.slider-diapo img {
+    width: 100%;
+    margin: auto;
+    display: block;
+    overflow: hidden;
+  }
+
+@-webkit-keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.description {
+  position: absolute;
+  top: 75%;
+  left: 18%;
+  z-index: 5; 
+  background-color: white;
+  opacity: 0.7;
+  padding: 10px;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+}
+.visible { 
+  display: flex;
+}
+
+/*Controls and buttons for slider*/
+.controls {
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  z-index: 100;
+  transform: translateX(-50%);
+  padding: 7px;
+  color: white;
+};
+
+.prev, .next, .play, .pause {
+  width: 50px;
+  cursor: pointer;
+}
+
+.prev:hover, .next:hover, .play:hover, .pause:hover {
+  color: purple;
+}
+.hidden {
+  display: none;
+}
+
+.carte {
+    min-width:70%;
+    min-height: 500px;
+}
+.container {
+    display: flex;
+    max-width: 1500px;
+    margin: auto;
+    margin-top: 3em;
+}
+.column-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    min-width: 320px;
+    justify-content: space-between;
+}
+
+#mapid { 
+    min-height: 400px;
+    height: 90%;
+ }
+
+ .station-text {
+     margin-left: 10px;
+ }
+
+.station-info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    min-height: 300px;
+    text-align: center;
+}
+
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+.formline {
+  width: 300px;
+  padding: 3px;
+  border: 1px solid black;
+}
+
+.emptyFieldAlert {
+  border: 3px solid red;
+}
+.station alert {
+  font-weight: bold;
+  color: red;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: darkblue;
+  color: white;
+  margin: 10px;
+  font-size: 0.9em;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+button:hover {
+  background-color: purple;
+}
+canvas {
+  border: 1px solid black;
+  padding: 3px;
+}
+

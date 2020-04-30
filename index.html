@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="LIEFMANN Emma">
+    <meta name="description" content="Reservation de velo de location en 20 minutes.">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="media.css">
+    <link rel="icon" href="images/flavicon.png" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Contrail+One&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin="">
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css">
+   
+
+    <title>Location de velo</title>
+</head>
+<body>
+    <header>
+        <h1>Location de velo à Nantes</h1>
+    </header>
+    <section class="slider">
+        <div class="slider-diapo">
+            <img src="images/slider1.jpg" alt="cycliste sur une rue" />
+            <div class="description">
+                <h3>Louer votre vélo en quatre étapes</h3>
+                <p>Simplifier vos déplacement en vélo avec l'application Bicloo.</p>
+            </div>
+        </div>
+        <div class="slider-diapo">
+            <img src="images/slider2.jpg" alt="cyclistes sur une rue" />
+            <div class="description">
+                <h3>1. Choisir votre station</h3>
+                <p>Sélectionner une station à proximité sur la carte interactive.</p>
+            </div>
+        </div>
+        <div class="slider-diapo">
+            <img src="images/slider3.jpg" alt="cycliste devant immeubles" />
+            <div class="description">
+                <h3>2. Remplir vos coordonnées</h3>
+                <p>Mettez votre nom, prénom, et signer dans le panneau.</p>
+            </div>
+        </div>
+        <div class="slider-diapo">
+            <img src="images/slider4.jpg" alt="vélo stationné" />
+            <div class="description">
+                <h3>3. Réserver un vélo</h3>
+                <p>Cliquer sur "Réserver"pour valider votre reservation.</p>
+            </div>
+        </div>
+        <div class="slider-diapo">
+            <img src="images/slider5.jpg" alt="vélos jaunes attachés aux railes" />
+            <div class="description">
+                <h3>4. Chercher votre vélo</h3>
+                <p>Vous avez 20 minutes pour chercher votre vélo.</p>
+            </div>
+        </div>
+        <div class="controls">
+	    	<a class="prev">
+                <i class="fas fa-chevron-left fa-2x"></i>
+            </a>
+            <span id="playpauseslot">
+                <a class="pause">
+                    <i class="fas fa-pause fa-2x"></i>
+                </a>
+                <a class="play">
+                    <i class="fas fa-play fa-2x"></i>
+                </a> 
+            </span>
+            <a class="next">
+                 <i class="fas fa-chevron-right fa-2x"></i>
+            </a>
+        </div>    
+    </section>
+    <section class="container">
+        <div class="carte">
+            <h2>Trouver une station de location</h2>
+            <div id="mapid">
+            </div>
+        </div>
+        <div class="column-container">
+            <div class ="station-info">
+                <h2>Station Info</h2>
+                <div class="staion-text">
+                    <p class="addressText"></p><br/>
+                    <p class="statusText"></p><br/>
+                    <p class="placesText"></p><br/>
+                    <p class="availabilityText"></p><br/>
+                </div>
+            </div>
+            
+            <div class="reservation-form">
+                <h2>Reservation</h2>
+                <form id="reservationform">
+                    <label for="nom">Votre nom</label><br/>
+                    <input type="text" id="nom" class="formline" placeholder="Votre nom"><br/><br/>
+                    <label for="prenom">Votre prenom</label><br/>
+                    <input type="text" id="prenom" class="formline" placeholder="Votre prenom"><br/>
+                    <p>Votre signature</p>
+                    <canvas id="signature"></canvas><br/>
+                    <div class="button-container">
+                        <button id="reserver" type="submit">Reserver</button>
+                        <button id="annuler" type="reset">Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="reservation">
+        <h2>Votre reservation</h2>
+        <div id="loader" class="hidden"></div>
+        <p id="reservationtext"></p><br/>
+        <p id="timer"></p>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <img src="images/Bicloo-logo.png" class="logo" alt="Logo Bicloo" />
+        </div>
+        <div class="footer-container">
+           <p>Site realisé par Emma Liefmann. Projet OpenClassRooms</p>
+        </div>
+    </footer>
+    <script src="js/canvas.js"></script>
+    <script src="js/slider1.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script> 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+   <script src="js/carte.js"></script>
+   <script src="js/reservation.js"></script>
+   <script src="js/timer.js"></script>
+   <script src="js/main.js"></script>
+</body>
+</html>

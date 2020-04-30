@@ -1,0 +1,48 @@
+
+@media screen and (max-width:768px) {
+   .container {
+       flex-direction: column;
+       width: 100%;
+       align-items: center;
+   } 
+   h1 {
+       font-size: 3em;
+       text-align: center;
+   }
+   h2 {
+       font-size: 2em;
+   }
+
+   h3 {
+       margin: 3px;
+   }
+   .carte {
+       width: 100%;
+   }
+   .description {
+       top: 30%;
+       left: 50%;
+       font-size: 0.9em;
+       padding: 3px;
+   }
+   
+   .column-container {
+       width: 100%;
+   }
+   .station-info {
+       text-align: center;
+   }
+   .station-text {
+    margin-left: 0px;
+    margin: auto;
+    }
+    
+    footer {
+        flex-direction: column;
+    }
+
+    .footer-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
